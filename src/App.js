@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 
+const repoData = {
+  username: "Purito",
+  repos: [
+    {
+      name: "kitkat",
+      link: "kitkat_link"
+    },
+    {
+      name: "cottonball",
+      link: "cottonball_link"
+    }
+  ]
+};
+
+
 class App extends Component {
+
+
   render() {
     return (
       <div>
@@ -13,10 +30,10 @@ class App extends Component {
           <button type="button" className="btn btn-primary">Search</button>
         </div>
         <div className="user-list">
-          <h3>Username</h3>
+          <h3>{repoData.username}</h3>
           <ul className="list-group col-6">
-            <li className="list-group-item">First repo</li>
-            <li className="list-group-item">Second repo</li>
+            {repoData.repos.map((item, index) =>
+              (<li className="list-group-item" key={index}>{item.name}</li>))}
           </ul>
         </div>
       </div>
